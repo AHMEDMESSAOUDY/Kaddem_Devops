@@ -12,18 +12,6 @@ pipeline {
         
 
         
-        
-
-
-
-        stage("Maven Build") {
-            steps {
-                 dir('kaddem') {
-                   sh "mvn package -DskipTests=true"
-                }
-                
-            }
-        }
         stage('Build Backend Docker Image') {
             steps {
                 dir('kaddem') {
