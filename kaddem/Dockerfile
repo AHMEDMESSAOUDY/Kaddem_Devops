@@ -3,7 +3,7 @@ WORKDIR /app
 COPY pom.xml .
 RUN mvn dependency:go-offline
 COPY src ./src
-RUN mvn clean package -DskipTests
+RUN mvn clean package -DskipTests -X
 
 FROM openjdk:8-jdk-alpine
 WORKDIR /app
