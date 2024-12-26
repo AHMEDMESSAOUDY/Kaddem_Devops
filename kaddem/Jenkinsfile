@@ -15,7 +15,7 @@ pipeline {
         stage('Build Backend Docker Image') {
             steps {
                 dir('kaddem') {
-                    sh 'docker build -t kaddem-backend .'
+                    sh 'docker -no-cache build -t kaddem-backend .'
                     sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
                     sh 'docker tag kaddem-backend ahmedmessaoudy/kaddem_project:$BUILD_NUMBER'
                     sh 'docker push ahmedmessaoudy/kaddem_project:$BUILD_NUMBER'
